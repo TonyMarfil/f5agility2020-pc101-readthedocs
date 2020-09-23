@@ -1,20 +1,17 @@
 F5 CloudFormation templates on Github
 -------------------------------------
 
-Open a new tab in the web browser. Click on the "f5-aws-cloudformation" URL bookmark in the bookmark toolbar. Supported F5 CloudFormation templates are hosted on the official F5 GitHub repo: https://github.com/F5Networks/.
+Open a new tab in the web browser. Click on the "PC101 AS3 Template" URL bookmar in the bookmark toolbar. An AS3 Declaration is a single JSON-formatted file that defines your virtual server(s) and all accompanying configuration objects. Some interesting configuration objects are highlighted int the screenshot below:
 
-.. image:: ./images/1_f5_aws_cloudformation_bookmark.png
+  - We use AWS tags to lookup the application pool members dynamically. You do not hardcode the IP addresses of pool members.
+  - An HTTP/2 profile is enabled.
+  - The Virtual Server Address is a "catch-all" wildcard address: 0.0.0.0/0.
+  
+
+.. image:: ./images/4a_f5_aws_cloudformation_as3_declaration
   :scale: 50%
 
-Scroll down and click on "Launch Stack".
-
-.. image:: ./images/2_f5_aws_cloudformation_launch_stack.png
-  :scale: 50%
-
-Choose "US West (Oregon) us-west-2 from the region drop-down menu in the upper-right-hand side.
-
-.. image:: ./images/3_f5_aws_cloudformation_confirm_region.png
-  :scale: 50%
+Open another new tab in the web browser. Click on the "f5-aws-cloudformation" URL bookmark in the bookmark toolbar. Supported F5 CloudFormation templates are hosted on the official F5 GitHub repo: https://github.com/F5Networks/.
 
 Scroll down and click on "Next"
 
@@ -55,6 +52,10 @@ Fill in the CloudFormation template parameters. Leave defaults where not explici
 +--------------------------------------------------------+------------------------------------------------------+
 | BIG-IP Modules                                         | ltm:nominal,avr:nominal                              |
 +--------------------------------------------------------+------------------------------------------------------+
+| **VIRTUAL SERVICE CONFIGURATION**                                                                             |
++-------------------------------------------------+-------------------------------------------------------------+
+| AS3 Declaration URL                             | https://f5-public-cloud.s3.amazonaws.com/pc101_as3_template |
++-------------------------------------------------+-------------------------------------------------------------+
 
 
 .. image:: ./images/5_f5_aws_cloudformation_stack_details1.png
